@@ -32,7 +32,9 @@ export const App: React.FC = () => {
   const [activeModal, setActiveModal] = useState<
     'project' | 'skills' | 'about' | 'contact' | 'customizer' | null
   >(null);
-  const [selectedProjectId, setSelectedProjectId] = useState<string>('aetheria');
+  const [selectedProjectId, setSelectedProjectId] = useState<string>(
+    () => profile.projects[0]?.id || 'multi-subject-ai-chatbot'
+  );
 
   // Ref to Three.js scene
   const sceneRef = useRef<WorldScene | null>(null);
@@ -99,7 +101,7 @@ export const App: React.FC = () => {
 
       switch (action) {
         case 'openProjects':
-          setSelectedProjectId(profile.projects[0]?.id || 'aetheria');
+          setSelectedProjectId(profile.projects[0]?.id || 'multi-subject-ai-chatbot');
           setActiveModal('project');
           break;
         case 'openSkills':

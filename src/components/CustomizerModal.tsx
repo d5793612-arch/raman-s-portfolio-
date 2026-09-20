@@ -81,12 +81,12 @@ export const CustomizerModal: React.FC<CustomizerModalProps> = ({
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
               <label className="block text-xs font-mono font-medium text-gray-700 dark:text-gray-300 uppercase mb-1">
-                Display Name
+                Display Name / Full Name
               </label>
               <input
                 type="text"
-                value={formData.name}
-                onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                value={formData.fullName || formData.name}
+                onChange={(e) => setFormData({ ...formData, fullName: e.target.value, name: e.target.value.split(' ')[0] })}
                 className="w-full px-3.5 py-2 rounded-xl bg-white/70 dark:bg-space-850/70 border border-gray-300 dark:border-white/10 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-accent"
               />
             </div>
@@ -104,16 +104,30 @@ export const CustomizerModal: React.FC<CustomizerModalProps> = ({
             </div>
           </div>
 
-          <div>
-            <label className="block text-xs font-mono font-medium text-gray-700 dark:text-gray-300 uppercase mb-1">
-              Headline Tagline
-            </label>
-            <input
-              type="text"
-              value={formData.tagline}
-              onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
-              className="w-full px-3.5 py-2 rounded-xl bg-white/70 dark:bg-space-850/70 border border-gray-300 dark:border-white/10 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-accent"
-            />
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label className="block text-xs font-mono font-medium text-gray-700 dark:text-gray-300 uppercase mb-1">
+                Headline Tagline
+              </label>
+              <input
+                type="text"
+                value={formData.tagline}
+                onChange={(e) => setFormData({ ...formData, tagline: e.target.value })}
+                className="w-full px-3.5 py-2 rounded-xl bg-white/70 dark:bg-space-850/70 border border-gray-300 dark:border-white/10 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-accent"
+              />
+            </div>
+
+            <div>
+              <label className="block text-xs font-mono font-medium text-gray-700 dark:text-gray-300 uppercase mb-1">
+                Location
+              </label>
+              <input
+                type="text"
+                value={formData.location}
+                onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+                className="w-full px-3.5 py-2 rounded-xl bg-white/70 dark:bg-space-850/70 border border-gray-300 dark:border-white/10 text-sm text-gray-900 dark:text-white focus:outline-none focus:ring-2 focus:ring-brand-accent"
+              />
+            </div>
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

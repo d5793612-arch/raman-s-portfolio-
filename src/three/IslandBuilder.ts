@@ -478,10 +478,10 @@ export class IslandBuilder {
 
     // 4 Floating Project Plinths / Glass Pavilions
     const projectPedestals = [
-      { x: -3.8, z: -1.2, color: 0x757bfd, rot: 0.2, title: 'Aetheria' },
-      { x: -1.2, z: 1.8, color: 0x00f2fe, rot: -0.15, title: 'NovaFlow' },
-      { x: 1.6, z: -0.8, color: 0xff6464, rot: 0.1, title: 'Kinetica' },
-      { x: 4.2, z: 1.6, color: 0x3ddc97, rot: -0.25, title: 'Lumina' },
+      { x: -3.8, z: -1.2, color: 0x757bfd, rot: 0.2, id: 'multi-subject-ai-chatbot' },
+      { x: -1.2, z: 1.8, color: 0x00f2fe, rot: -0.15, id: 'fraud-detection-research' },
+      { x: 1.6, z: -0.8, color: 0xff6464, rot: 0.1, id: 'hybrid-pca-gnn-transformer' },
+      { x: 4.2, z: 1.6, color: 0x3ddc97, rot: -0.25, id: 'google-forms-ai-helper' },
     ];
 
     projectPedestals.forEach((p, idx) => {
@@ -523,7 +523,7 @@ export class IslandBuilder {
       });
       const cube = new THREE.Mesh(cubeGeom, cubeMat);
       cube.position.set(0, 1.6, 0.3);
-      cube.userData = { projectId: p.title.toLowerCase(), interactive: true };
+      cube.userData = { projectId: p.id, interactive: true };
       this.rotatingObjects.push({ obj: cube, speedY: 0.8 + idx * 0.2, speedX: 0.4 });
       this.interactiveObjects.push(cube);
       pedestalGroup.add(cube);
